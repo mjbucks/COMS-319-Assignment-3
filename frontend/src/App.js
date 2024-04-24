@@ -30,9 +30,9 @@ function App() {
       </div>
 
       {viewer === 'Add' && <CreateProduct/>}
-      {/* {viewer === 'Delete' && <DeleteComponent />}
-      {viewer === 'Update' && <UpdateComponent />}
-      {viewer === 'View' && <ViewComponent />} */}
+      {viewer === 'Delete' && <DeleteProduct/>}
+      {viewer === 'Update' && <UpdateProduct/>}
+      {viewer === 'View' && <ViewProducts/>}
 
     </div>
   );
