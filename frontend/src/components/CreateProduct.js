@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/style.css"
+import { v4 as uuid } from "uuid";
 
 
 export function CreateProduct() {
@@ -8,10 +9,13 @@ export function CreateProduct() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
+        const unique_id = uuid();
         const small_id = unique_id.slice(0, 8);
+
         data.id = small_id;
+        
         try {
-            const response = await fetch('/addItem', {
+            const response = await fetch('http://localhost:8081/addItem', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
