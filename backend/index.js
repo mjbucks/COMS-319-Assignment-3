@@ -57,15 +57,15 @@ app.post("/addItem", async (req, res) => {
     const keys = Object.keys(req.body);
     const values = Object.values(req.body);
     const newDocument = {
-      "id": values[0], // also "id": req.body.id,
-      "title": values[1], // also "name": req.body.name,
-      "price": values[2], // also "price": req.body.price,
-      "description": values[3], // also "description": req.body.description,
-      "category": values[4], // also "imageUrl": req.body.imageUrl
-      "image": values[5],
+      "id": req.body.id, // also "id": req.body.id,
+      "title": req.body.title, // also "name": req.body.name,
+      "price": req.body.price, // also "price": req.body.price,
+      "description": req.body.description, // also "description": req.body.description,
+      "category": req.body.category, // also "imageUrl": req.body.imageUrl
+      "image": req.body.image,
       "rating": {
-        "rate": values[6],
-        "count": values[7]
+        "rate": req.body.rate,
+        "count": req.body.count
       }
     };
     console.log(newDocument);
