@@ -16,6 +16,7 @@ const db = client.db(dbName);
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
 const port = "8081";
 const host = "localhost";
