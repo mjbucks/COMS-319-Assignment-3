@@ -26,17 +26,23 @@ app.listen(port, () => {
 
 
 app.get("/", async (req, res) => {
-  await client.connect();
-  console.log("Node connected successfully to GET MongoDB");
-  const query = {};
-  const results = await db
-  .collection("fakestore_catalog")
-  .find(query)
-  .limit(100)
-  .toArray();
-  console.log(results);
-  res.status(200);
+  try {
+      await client.connect();
+      console.log("Node connected successfully to GET MongoDB");
+      const query = {};
+      const results = await db
+          .collection("fakestore_catalog")
+          .find(query)
+          .limit(100)
+          .toArray();
+      console.log(results);
+      res.json(results); // Send the results back as JSON response
+  } catch (error) {
+      console.error("Error fetching products:", error);
+      res.status(500).json({ error: "Internal server error" }); // Handle error
+  }
 });
+
 
 app.get("/:id", async (req, res) => {
   const itemid = Number(req.params.id);
