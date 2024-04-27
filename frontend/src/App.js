@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { DeleteProduct } from "./components/DeleteProduct.js";
 import { UpdateProduct } from "./components/UpdateProduct.js";
 import { ViewProducts } from "./components/ViewProducts.js";
+import { Authors } from "./components/Authors.js";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <div style={{marginLeft: '20%'}}>
           <Button variant="primary" onClick={() => handleViewerChange('Add')}>Add</Button>
         </div>
+        <Button variant="info" onClick={() => handleViewerChange('Authors')}>Authors</Button>
         <Button variant="danger" onClick={() => handleViewerChange('Delete')}>Delete</Button>
         <Button variant="warning" onClick={() => handleViewerChange('Update')}>Update</Button>
         <div style={{marginRight: '20%'}}>
@@ -36,6 +38,7 @@ function App() {
       {viewer === 'Delete' && <DeleteProduct/>}
       {viewer === 'Update' && <UpdateProduct/>}
       {viewer === 'View' && <ViewProducts/>}
+      {viewer === 'Authors' && <Authors/>}
     </div>
   );
 }
