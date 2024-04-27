@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { CreateProduct } from "./components/CreateProduct.js"
 import React, { useState } from "react";
 import { DeleteProduct } from "./components/DeleteProduct.js";
+import { UpdateProduct } from "./components/UpdateProduct.js";
 import { ViewProducts } from "./components/ViewProducts.js";
 
 function App() {
@@ -33,9 +34,8 @@ function App() {
 
       {viewer === 'Add' && <CreateProduct/>}
       {viewer === 'Delete' && <DeleteProduct/>}
-      {/* {viewer === 'Update' && <UpdateProduct/>} */}
+      {viewer === 'Update' && <UpdateProduct/>}
       {viewer === 'View' && <ViewProducts/>}
-
     </div>
   );
 }
