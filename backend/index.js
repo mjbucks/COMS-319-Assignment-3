@@ -36,7 +36,6 @@ app.get("/", async (req, res) => {
           .find(query)
           .limit(100)
           .toArray();
-      console.log(results);
       res.json(results); // Send the results back as JSON response
   } catch (error) {
       console.error("Error fetching products:", error);
@@ -123,10 +122,12 @@ app.delete("/deleteItem/:id", async (req, res) => {
     // Add options if needed, for example { upsert: true } to create a document if it doesn't exist
     const options = { };
     const results = await db.collection("fakestore_catalog").updateOne(query, updateData, options);
-    res.status(200);
-    res.send(results);
     if (results.matchedCount === 0) {
       return res.status(404).send({ message: 'Item not found' });
+    }
+    else{
+      res.status(200);
+      res.send(results);
     }
     });
  
